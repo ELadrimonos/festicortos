@@ -1,13 +1,13 @@
 @extends("partials.plantilla")
 @section('titulo', 'Cortos')
 @section('contenido')
-    <section class="container justify-content-center gap-2 ps-lg-5">
+    <section class="container">
     @foreach($cortos as $index => $corto)
         @if($index == 0 || $index % 3 == 0)
             <div class="row">
                 @endif
 
-                <div class="col-sm-3 mw-50">
+                <div class="col-sm-3">
                     <div class="card border-0">
                         <div class="card-body">
                             <h1 class="card-title">{{$corto["titulo"]}}</h1>
