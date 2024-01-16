@@ -18,10 +18,6 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::get('cortos', function () {
-
-});
-
 Route::get('cortos', [ControladorCorto::class, 'index'])->name('listado_cortos');
 Route::get('cortos/{id}', [ControladorCorto::class, 'show'])->name('detalle_corto');
 
