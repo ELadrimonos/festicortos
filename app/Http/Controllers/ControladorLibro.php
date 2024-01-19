@@ -24,7 +24,6 @@ class ControladorLibro extends Controller
     public function show(string $id)
     {
 
-        return "Mostrando ficha de libro $id";
     }
 
     public function create()

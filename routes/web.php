@@ -22,4 +22,3 @@ Route::get('cortos', [ControladorCorto::class, 'index'])->name('listado_cortos')
 Route::get('cortos/{id}', [ControladorCorto::class, 'show'])->name('detalle_corto');
 
 Route::get('libros', [ControladorLibro::class, 'index'])->name('listado_libros');
-Route::get('libros/{id}', [ControladorLibro::class, 'show'])->name('detalle_libro');
