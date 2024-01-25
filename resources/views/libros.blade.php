@@ -1,5 +1,9 @@
 @extends("partials.plantilla")
+<<<<<<< HEAD
 @section('titulo', 'Libros')
+=======
+@section('titulo', 'Cortos')
+>>>>>>> 8ae570038ae6bbab7967f854b6380d61a28f8561
 @section('contenido')
     <section class="container d-flex justify-content-center">
         <table class="table thead-dark w-75 fs-4 border-dark table-bordered">

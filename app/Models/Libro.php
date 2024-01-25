@@ -11,8 +11,10 @@ class Libro extends Model
 
     protected $table = 'libros';
 
+
     public function autores(){
         return $this->belongsTo(Autor::class);
     }
+
 
 }

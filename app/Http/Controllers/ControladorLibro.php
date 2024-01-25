@@ -10,6 +10,7 @@ class ControladorLibro extends Controller
     {
         $libros = Libro::with('autores')->get();
         return view('libros', compact('libros'));
+
     }
 
     public function show(string $id)
