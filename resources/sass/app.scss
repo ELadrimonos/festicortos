@@ -1,0 +1,21 @@
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+//.centrar{
+//    margin:auto;
+//    width: 1500px;
+//}
+
+.col-sm-3{
+    width: 32% !important;
+}
+
+.card{
+    width: 100%;
+}
