@@ -26,17 +26,14 @@ class ControladorLibro extends Controller
 
     public function store(Request $request)
     {
-        // Validate the request
-        $request->validate([
-            'title' => 'required|max:255',
-            'author' => 'required|max:255',
-            // Add other validation rules as needed
-        ]);
+
 
         // Create a new Libro instance and save it to the database
         $libro = new Libro();
-        $libro->title = $request->input('title');
-        $libro->author = $request->input('author');
+        $libro->titulo = $request->input('titulo');
+        $libro->editorial = $request->input('editorial');
+        $libro->precio = $request->input('precio');
+        $libro->id_autor = $request->input('id_autor');
         // Set other attributes as needed
         $libro->save();
 
