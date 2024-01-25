@@ -9,7 +9,7 @@
                     <h1 class="card-title mb-md-4">{{$entrada["titulo"]}}</h1>
                     <h3 class="card-title mb-md-4">{{$entrada["director"]}}</h3>
                     <p class="card-text fs-5">{{$entrada["sinapsis"]}}</p>
-                    <a href="{{route("listado_cortos")}}" class="fs-4">Volver</a>
+                    <a href="{{route("cortos.index")}}" class="fs-4">Volver</a>
                 </div>
             </div>
         </div>

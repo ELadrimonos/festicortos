@@ -18,7 +18,10 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::get('cortos', [ControladorCorto::class, 'index'])->name('listado_cortos');
-Route::get('cortos/{id}', [ControladorCorto::class, 'show'])->name('detalle_corto');
+//Route::get('cortos', [ControladorCorto::class, 'index'])->name('listado_cortos');
+//Route::get('cortos/{id}', [ControladorCorto::class, 'show'])->name('detalle_corto');
+//
+//Route::get('libros', [ControladorLibro::class, 'index'])->name('listado_libros');
 
-Route::get('libros', [ControladorLibro::class, 'index'])->name('listado_libros');
+Route::resource('libros',ControladorLibro::class);
+Route::resource('cortos',ControladorCorto::class);

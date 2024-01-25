@@ -7,10 +7,10 @@
                 <a class="nav-link" href="{{route('home')}}">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('listado_cortos')}}">Lista de cortos</a>
+                <a class="nav-link" href="{{route('cortos.index')}}">Lista de cortos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('listado_libros')}}">Lista de libros</a>
+                <a class="nav-link" href="{{route('libros.index')}}">Lista de libros</a>
             </li>
         </ul>
     </div>

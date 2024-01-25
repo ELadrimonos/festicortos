@@ -13,7 +13,7 @@
                             <h1 class="card-title">{{$corto["titulo"]}}</h1>
                             <h6 class="card-title mb-md-4">{{$corto["director"]}}</h6>
                             <p class="card-text fs-5">{{$corto["sinapsis"]}}</p>
-                            <a href="{{route("detalle_corto", $corto["id"])}}" class="btn btn-primary fs-4">Detalles</a>
+                            <a href="{{route("cortos.show", $corto["id"])}}" class="btn btn-primary fs-4">Detalles</a>
                         </div>
                     </div>
                 </div>
