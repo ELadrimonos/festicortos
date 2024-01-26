@@ -17,7 +17,8 @@ class ControladorLibro extends Controller
 
     public function search_author()
     {
-        return view('libros_buscador_autor');
+        $autores = Autor::all();
+        return view('libros_buscador_autor', compact('autores'));
     }
 
     public function filter($id)
