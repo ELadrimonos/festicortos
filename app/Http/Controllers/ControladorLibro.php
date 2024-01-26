@@ -17,12 +17,14 @@ class ControladorLibro extends Controller
 
     public function entries($pagina = 1)
     {
-        $numEntradas = 2;
+        $numEntradas = 3;
         $empezarEntradas = ($pagina - 1) * $numEntradas;
         $libros = Libro::with('autores')->get();
         $autores = Autor::get();
         $entradas = array();
         for ($i = $empezarEntradas; $i < ($empezarEntradas + $numEntradas); $i++) {
+            if (!isset($libros[$i])) break;
+
             $libro = $libros[$i];
             $autor_actual = null;
             foreach ($autores as $autor) {
