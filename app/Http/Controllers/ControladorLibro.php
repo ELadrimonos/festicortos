@@ -15,6 +15,28 @@ class ControladorLibro extends Controller
         return view('libros', compact('libros', 'autores'));
     }
 
+    public function entries($pagina = 1)
+    {
+        $numEntradas = 2;
+        $empezarEntradas = ($pagina - 1) * $numEntradas;
+        $libros = Libro::with('autores')->get();
+        $autores = Autor::get();
+        $entradas = array();
+        for ($i = $empezarEntradas; $i < ($empezarEntradas + $numEntradas); $i++) {
+            $libro = $libros[$i];
+            $autor_actual = null;
+            foreach ($autores as $autor) {
+                if ($autor['id'] == $libro['id_autor']) {
+                    $autor_actual = $autor;
+                    break;
+                }
+            }
+            $entradas[] = array($libro, $autor_actual);
+        }
+        return view('libros_lista_con_autores', compact('entradas', 'pagina'));
+
+    }
+
     public function show(string $id)
     {
         echo "SHOW";
