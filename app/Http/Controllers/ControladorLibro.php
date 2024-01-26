@@ -15,8 +15,7 @@ class ControladorLibro extends Controller
 
     public function show(string $id)
     {
-        $libro = Libro::findOrFail($id);
-        return view('libro_detalle', compact('libro'));
+        echo "SHOW";
     }
 
     public function create()

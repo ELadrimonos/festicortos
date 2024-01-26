@@ -22,11 +22,31 @@
 {{--                        TODO Obtener nombre autor--}}
                         <td class="card-title mb-md-4">{{$libro->id_autor}}</td>
                         <td class="card-title mb-md-4"><a class="btn btn-outline-primary w-100" href="{{route('libros.edit', $libro->id)}}">Modificar</a></td>
-                        <td class="card-title mb-md-4"><a class="btn btn-outline-danger w-100" href="{{route('libros.destroy', $libro->id)}}">Eliminar</a></td>
+{{--                        Para poder usar la ruta de .destroy, debo pasar el metodo DELETE. Para ahorrar hacer un formulario creo una función de JS--}}
+                        <td class="card-title mb-md-4"><a class="btn btn-outline-danger w-100" onclick="eliminarLibro({{ $libro->id }})">Eliminar</a></td>
                     </tr>
 
                 @endforeach
             </tbody>
         </table>
     </section>
+    <script>
+        function eliminarLibro(libroId) {
+            if (confirm('¿Estás seguro de que deseas eliminar este libro?')) {
+                fetch("{{ route('libros.destroy', $libro->id) }}", {
+                    method: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Content-Type': 'application/json',
+                    },
+                })
+                    .then(function() {
+                        location.reload();
+                    })
+                    .catch(error => {
+                        console.error('Hubo un problema con la solicitud DELETE:', error);
+                    });
+            }
+        }
+    </script>
 @endsection
