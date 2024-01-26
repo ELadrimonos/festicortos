@@ -15,6 +15,18 @@ class ControladorLibro extends Controller
         return view('libros', compact('libros', 'autores'));
     }
 
+    public function search_author()
+    {
+        return view('libros_buscador_autor');
+    }
+
+    public function filter($id)
+    {
+        $libros = Libro::with('autores')->get();
+
+        return view('libros_buscador_autor');
+    }
+
     public function entries($pagina = 1)
     {
         $numEntradas = 3;
