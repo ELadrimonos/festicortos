@@ -22,6 +22,6 @@ Route::get('/', function () {
 //Route::get('cortos/{id}', [ControladorCorto::class, 'show'])->name('detalle_corto');
 //
 //Route::get('libros', [ControladorLibro::class, 'index'])->name('listado_libros');
-
+Route::get('libros/entradas/{pagina}', [ControladorLibro::class, 'entries'])->name('libros.entries');
 Route::resource('libros',ControladorLibro::class);
 Route::resource('cortos',ControladorCorto::class);
