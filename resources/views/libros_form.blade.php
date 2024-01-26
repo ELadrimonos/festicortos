@@ -19,7 +19,11 @@
         <label for="precio">Precio</label>
         <input type="text" name="precio" id="precio" value="{{ isset($libro) ? $libro->precio : ''}}">
         <label for="autor">Autor</label>
-        <input type="text" name="id_autor" id="autor" value="{{ isset($libro) ? $libro->id_autor : ''}}">
+        <select name="id_autor" id="autor">
+            @foreach($autores as $autor)
+                <option value="{{$autor->id}}" {{(isset($libro) && ($libro->id_autor === $autor->id)) ? 'selected' : ''}}>{{$autor->nombre}}</option>
+            @endforeach
+        </select>
         <input type="submit" value="{{ isset($libro) ? 'Modificar' : 'Insertar' }}">
     </form>
 @endsection

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Autor;
 use Illuminate\Http\Request;
 use App\Models\Libro;
 
@@ -10,7 +11,8 @@ class ControladorLibro extends Controller
     public function index()
     {
         $libros = Libro::with('autores')->get();
-        return view('libros', compact('libros'));
+        $autores = Autor::get();
+        return view('libros', compact('libros', 'autores'));
     }
 
     public function show(string $id)
@@ -20,7 +22,8 @@ class ControladorLibro extends Controller
 
     public function create()
     {
-        return view('libros_form');
+        $autores = Autor::get();
+        return view('libros_form', compact('autores'));
     }
 
     public function store(Request $request)
@@ -42,7 +45,8 @@ class ControladorLibro extends Controller
     public function edit(string $id)
     {
         $libro = Libro::findOrFail($id);
-        return view('libros_form', compact('libro', 'id'));
+        $autores = Autor::get();
+        return view('libros_form', compact('libro', 'id', 'autores'));
     }
 
     public function update(Request $request, string $id)

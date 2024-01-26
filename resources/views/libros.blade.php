@@ -20,7 +20,13 @@
                         <td class="card-title mb-md-4">{{$libro->editorial}}</td>
                         <td class="card-title mb-md-4">{{$libro->precio}}</td>
 {{--                        TODO Obtener nombre autor--}}
-                        <td class="card-title mb-md-4">{{$libro->id_autor}}</td>
+                        <td class="card-title mb-md-4">
+                            @foreach($autores as $autor)
+                                @if($autor->id === $libro->id_autor)
+                                    {{$autor->nombre}}
+                                @endif
+                            @endforeach
+                        </td>
                         <td class="card-title mb-md-4"><a class="btn btn-outline-primary w-100" href="{{route('libros.edit', $libro->id)}}">Modificar</a></td>
 {{--                        Para poder usar la ruta de .destroy, debo pasar el metodo DELETE. Para ahorrar hacer un formulario creo una función de JS--}}
                         <td class="card-title mb-md-4"><a class="btn btn-outline-danger w-100" onclick="eliminarLibro({{ $libro->id }})">Eliminar</a></td>
