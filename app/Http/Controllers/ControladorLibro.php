@@ -37,7 +37,7 @@ class ControladorLibro extends Controller
         $libros = Libro::where('id_autor', $autor->id)->get();
 
 
-        return view('resultados_libros_autor', compact('libros', 'nombreAutor'));
+        return view('resultados_libros_autor', compact('libros', 'autor'));
     }
 
     public function entries($pagina = 1)

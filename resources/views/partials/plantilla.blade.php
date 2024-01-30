@@ -11,6 +11,6 @@
 
 @yield('contenido')
 
-<footer class="card-footer text-body-secondary fixed-bottom m-5 fs-5">© DAW - Desarrollo Web en Entorno Servidor</footer>
+<footer class="card-footer text-body-secondary fixed-bottom m-5 fs-5 z-1">© DAW - Desarrollo Web en Entorno Servidor</footer>
 </body>
 </html>
