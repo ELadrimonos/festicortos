@@ -1,8 +1,10 @@
 @extends("partials.plantilla")
-@section('titulo', 'Libros y Autores')
+@section('titulo', 'Buscador de Libros por Autor')
 @section('contenido')
     <h1 class="text-center title">Buscar libros por autor</h1>
-    <form class="d-flex justify-content-center w-25 m-auto ">
+    <form class="d-flex justify-content-center w-25 m-auto" method="POST" action="{{route('libros.filtrar')}}">
+        @csrf
+        @method('POST')
         <input class="form-control" type="text" name="nombre_autor" id="buscador">
         <input class="btn btn-outline-primary" type="submit" value="Buscar">
     </form>
@@ -15,7 +17,6 @@
         const inputHandler = function(e) {
             const valor = e.target.value;
             result.innerHTML = '';
-            if (valor !== ''){
             let listado = {!! json_encode($autores) !!};
             listado = listado.filter(element => element['nombre'].toLowerCase().startsWith(valor.toLowerCase()));
             console.log(listado)
@@ -31,7 +32,7 @@
 
                     result.appendChild(elementoLista);
                 }
-            }
+
 
         }
 

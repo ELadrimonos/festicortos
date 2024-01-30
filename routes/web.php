@@ -24,6 +24,6 @@ Route::get('/', function () {
 //Route::get('libros', [ControladorLibro::class, 'index'])->name('listado_libros');
 Route::get('libros/entradas/{pagina}', [ControladorLibro::class, 'entries'])->name('libros.entries');
 Route::get('libros/buscar', [ControladorLibro::class, 'search_author'])->name('libros.buscar');
-Route::get('libros/buscar/{id}', [ControladorLibro::class, 'filter'])->name('libros.filtrar');
+Route::post('libros/autor', [ControladorLibro::class, 'filter'])->name('libros.filtrar');
 Route::resource('libros',ControladorLibro::class);
 Route::resource('cortos',ControladorCorto::class);

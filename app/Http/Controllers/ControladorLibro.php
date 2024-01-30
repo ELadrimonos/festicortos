@@ -21,11 +21,22 @@ class ControladorLibro extends Controller
         return view('libros_buscador_autor', compact('autores'));
     }
 
-    public function filter($id)
+    public function filter(Request $request)
     {
-        $libros = Libro::with('autores')->get();
+        // Obtener el ID del autor cuyo nombre coincida con el proporcionado en la solicitud
+        $nombreAutor = $request->input('nombre_autor');
+        $autor = Autor::where('nombre', $nombreAutor)->first();
 
-        return view('libros_buscador_autor');
+        // Verificar si el autor existe
+        if (!$autor) {
+            // Manejar el caso en el que no se encuentre el autor
+            return redirect()->route('home'); // Reemplaza 'nombre_de_la_ruta' con la ruta que desees
+        }
+
+        $libros = Libro::where('id_autor', $autor->id)->get();
+
+
+        return view('resultados_libros_autor', compact('libros', 'nombreAutor'));
     }
 
     public function entries($pagina = 1)
