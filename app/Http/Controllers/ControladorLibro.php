@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Autor;
 use Illuminate\Http\Request;
 use App\Models\Libro;
+use Termwind\Components\Li;
 
 class ControladorLibro extends Controller
 {
@@ -65,7 +66,34 @@ class ControladorLibro extends Controller
 
     public function show(string $id)
     {
-        echo "SHOW";
+
+    }
+
+    public function get_libro(string $id)
+    {
+        return Libro::where('id', $id)->first();
+    }
+
+    public function get_libros()
+    {
+        return Libro::all();
+    }
+
+    public function get_autores()
+    {
+        return Autor::all();
+    }
+
+    public function get_autor(string $id)
+    {
+        return Autor::where('id', $id)->first();
+    }
+
+    public function get_libros_autor(string $id)
+    {
+        $autor =Autor::where('id', $id)->first();
+
+        return Libro::where('id_autor', $autor->id)->get();
     }
 
     public function create()

@@ -23,7 +23,7 @@
                 for (const listadoElement of listado) {
                     const elementoLista = document.createElement("li");
                     elementoLista.innerText = listadoElement['nombre'];
-                    elementoLista.className = 'text-center list-group-item btn-link'
+                    elementoLista.className = 'text-center list-group-item btn-link user-select-none'
 
                     elementoLista.onclick = () => {
                         source.value = listadoElement['nombre'];
