@@ -25,6 +25,7 @@ Route::get('/', function () {
 Route::get('libros/entradas/{pagina}', [ControladorLibro::class, 'entries'])->name('libros.entries');
 Route::get('libros/buscar', [ControladorLibro::class, 'search_author'])->name('libros.buscar');
 Route::post('libros/autor', [ControladorLibro::class, 'filter'])->name('libros.filtrar');
+Route::delete('libros/borrar/{id}', [ControladorLibro::class, 'destroy'])->name('libros.destroy');
 
 // API REST
 Route::get('api/libros', [ControladorLibro::class, 'get_libros'])->name('libros.get_libros');

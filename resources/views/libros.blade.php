@@ -19,7 +19,6 @@
                         <td class="card-title mb-md-4">{{$libro->titulo}}</td>
                         <td class="card-title mb-md-4">{{$libro->editorial}}</td>
                         <td class="card-title mb-md-4">{{$libro->precio}}</td>
-{{--                        TODO Obtener nombre autor--}}
                         <td class="card-title mb-md-4">
                             @foreach($autores as $autor)
                                 @if($autor->id === $libro->id_autor)
@@ -39,7 +38,7 @@
     <script>
         function eliminarLibro(libroId) {
             if (confirm('¿Estás seguro de que deseas eliminar este libro?')) {
-                fetch("{{ route('libros.destroy', $libro->id) }}", {
+                fetch("{{ url('libros/borrar') }}" + "/" + libroId, {
                     method: 'DELETE',
                     headers: {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}',
