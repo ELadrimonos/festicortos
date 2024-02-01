@@ -13,6 +13,9 @@
                 <a class="nav-link" href="{{route('libros.index')}}">Tabla de libros</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="{{route('autores.index')}}">Tabla de autores</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{{route('libros.entries', 1)}}">Lista de libros</a>
             </li>
             <li class="nav-item">

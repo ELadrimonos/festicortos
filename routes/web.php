@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ControladorLibro;
 use App\Http\Controllers\ControladorCorto;
+use App\Http\Controllers\ControladorAutor;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +27,7 @@ Route::get('libros/entradas/{pagina}', [ControladorLibro::class, 'entries'])->na
 Route::get('libros/buscar', [ControladorLibro::class, 'search_author'])->name('libros.buscar');
 Route::post('libros/autor', [ControladorLibro::class, 'filter'])->name('libros.filtrar');
 Route::delete('libros/borrar/{id}', [ControladorLibro::class, 'destroy'])->name('libros.destroy');
+Route::delete('autores/borrar/{id}', [ControladorAutor::class, 'destroy'])->name('autores.destroy');
 
 // API REST
 Route::get('api/libros', [ControladorLibro::class, 'get_libros'])->name('libros.get_libros');
@@ -37,3 +39,4 @@ Route::get('api/autores/{id}/libros', [ControladorLibro::class, 'get_libros_auto
 
 Route::resource('libros',ControladorLibro::class);
 Route::resource('cortos',ControladorCorto::class);
+Route::resource('autores',ControladorAutor::class);

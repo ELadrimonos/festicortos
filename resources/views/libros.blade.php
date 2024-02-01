@@ -1,6 +1,11 @@
 @extends("partials.plantilla")
 @section('titulo', 'Libros')
 @section('contenido')
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <section class="container d-flex justify-content-center">
         <table class="table thead-dark w-75 fs-4 border-dark table-bordered">
             <thead class="table-dark">

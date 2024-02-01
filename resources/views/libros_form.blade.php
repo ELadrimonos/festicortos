@@ -14,11 +14,11 @@
         @csrf
         @method( isset($id) ? 'PUT' : 'POST' )
         <label class="form-label fs-2" for="titulo">Título</label>
-        <input type="text" name="titulo" id="titulo" value="{{ isset($libro) ? $libro->titulo : ''}}">
+        <input type="text" name="titulo" required id="titulo" value="{{ isset($libro) ? $libro->titulo : ''}}">
         <label class="form-label fs-2" for="editorial">Editorial</label>
-        <input type="text" name="editorial" id="editorial" value="{{ isset($libro) ? $libro->editorial : ''}}">
+        <input type="text" name="editorial" required id="editorial" value="{{ isset($libro) ? $libro->editorial : ''}}">
         <label class="form-label fs-2" for="precio">Precio</label>
-        <input type="text" name="precio" id="precio" value="{{ isset($libro) ? $libro->precio : ''}}">
+        <input type="text" name="precio" required id="precio" value="{{ isset($libro) ? $libro->precio : ''}}">
         <label class="form-label fs-2" for="autor">Autor</label>
         <select name="id_autor" id="autor" class="form-select form-select-lg mb-4">
             @foreach($autores as $autor)
