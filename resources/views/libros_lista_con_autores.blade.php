@@ -7,8 +7,7 @@
         @endforeach
     </ul>
     <div class="d-flex justify-content-start m-3 w-100 gap-3">
-{{--        Habría que hacer que sepa todas las páginas que hay dinámicamente --}}
-        @for($i = 1; $i < 3; $i++)
+        @for($i = 1; $i <= $numPaginas; $i++)
             <a class="btn {{$i == $pagina ? 'btn-primary text-light' : 'btn-outline-secondary'}}" href="{{route('libros.entries', $i)}}">{{$i}}</a>
         @endfor
     </div>
