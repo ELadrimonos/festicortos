@@ -1,17 +1,19 @@
 @extends("partials.plantilla")
 @section('titulo', 'Autores')
 @section('contenido')
-    @if(session('success'))
+    @if(session('mensaje'))
         <div class="alert alert-success">
-            {{ session('success') }}
+            {{ session('mensaje') }}
         </div>
     @endif
 
-    @if(session('error'))
+
+   @if(session('error'))
         <div class="alert alert-danger">
             {{ session('error') }}
         </div>
     @endif
+
 
     <section class="container d-flex justify-content-center">
         <table class="table thead-dark w-75 fs-4 border-dark table-bordered">

@@ -62,12 +62,15 @@ class ControladorAutor extends Controller
 
     public function destroy(string $id)
     {
-        // Find the Libro instance by ID and delete it
-        $autor = Autor::findOrFail($id);
-        $autor->delete();
+        try {
+            $autor = Autor::findOrFail($id);
+            $autor->delete();
+            return redirect()->route('autores.index')->with('success', 'Autor eliminado exitosamente');
 
-        return redirect()->route('autores.index')
-            ->with('success', 'Autor eliminado exitosamente')
-            ->withErrors(['error' => 'Hubo un problema al eliminar el autor, es posible que tenga algún libro asociado']);
+        } catch (\Illuminate\Database\QueryException $e) {
+
+            // Al fallar el método delete este lanza una excepción
+            return redirect()->route('autores.index')->with('error', 'Hubo un problema al eliminar el autor, es posible que tenga algún libro asociado');
+        }
     }
 }
