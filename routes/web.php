@@ -30,10 +30,3 @@ Route::group(['middleware' => ['web']], function () {
     Route::resource('cortos',ControladorCorto::class);
     Route::resource('autores',ControladorAutor::class);
 });
-
-// API REST
-Route::get('api/libros', [ControladorLibro::class, 'get_libros'])->name('libros.get_libros');
-Route::get('api/autores', [ControladorLibro::class, 'get_autores'])->name('libros.get_autores');
-Route::get('api/libros/{id}', [ControladorLibro::class, 'get_libro'])->name('libros.get_libro');
-Route::get('api/autores/{id}', [ControladorLibro::class, 'get_autor'])->name('libros.get_autor');
-Route::get('api/autores/{id}/libros', [ControladorLibro::class, 'get_libros_autor'])->name('libros.get_libros_autor');

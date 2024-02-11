@@ -70,33 +70,6 @@ class ControladorLibro extends Controller
 
     }
 
-    public function get_libro(string $id)
-    {
-        return Libro::where('id', $id)->first();
-    }
-
-    public function get_libros()
-    {
-        return Libro::all();
-    }
-
-    public function get_autores()
-    {
-        return Autor::all();
-    }
-
-    public function get_autor(string $id)
-    {
-        return Autor::where('id', $id)->first();
-    }
-
-    public function get_libros_autor(string $id)
-    {
-        $autor =Autor::where('id', $id)->first();
-
-        return Libro::where('id_autor', $autor->id)->get();
-    }
-
     public function create()
     {
         $autores = Autor::get();

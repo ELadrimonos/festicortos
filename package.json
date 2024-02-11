@@ -3,7 +3,7 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build | php artisan serve --host=192.168.72.46"
+        "build": "vite build"
     },
     "devDependencies": {
         "@popperjs/core": "^2.11.6",
